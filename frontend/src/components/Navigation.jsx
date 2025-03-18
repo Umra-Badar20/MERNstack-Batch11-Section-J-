@@ -40,7 +40,10 @@ const Navigation = () => {
             <NavLink to="/contact" text="Contact" />
 
             {isAuthenticated ? (
+              <>
+              <NavLink to="/Profile" text="Profile" />
               <NavLink to="/logout" text="Logout" />
+              </>
             ) : (
               <>
                 <NavLink to="/signup" text="Sign Up" />

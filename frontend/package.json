@@ -18,6 +18,7 @@
     "@tailwindcss/vite": "^4.0.12",
     "font-awesome": "^4.7.0",
     "formik": "^2.4.6",
+    "lightningcss": "^1.29.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
