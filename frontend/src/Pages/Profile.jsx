@@ -94,6 +94,7 @@ const Profile = () => {
             <FontAwesomeIcon
               icon={faUserPen}
               className="h-6 w-6 sm:h-8 sm:w-8 hover:text-[#4bf6d4] transition duration-300"
+              onClick={() => navigate("/update")}
             />
             <FontAwesomeIcon
               icon={faTrash}
@@ -125,6 +126,8 @@ const Profile = () => {
 
         {/* Card Footer */}
         <div className="bg-gray-50 p-4">
+   
+
           <button
             onClick={() => navigate("/")}
             className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 rounded-md transition-all duration-300"
