@@ -43,6 +43,40 @@ const Profile = () => {
 
     fetchUserDetails();
   }, [navigate]);
+//delete
+const handleDeleteAccount = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    navigate("/login");
+    return;
+  }
+
+  
+    
+      try {
+        const userId = user._id; // Get the actual user ID from the state (or response)
+        const response = await fetch(`http://localhost:5000/api/auth/user/${userId}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+    
+        if (response.ok) {
+          toast.success("Account deleted successfully!");
+          localStorage.removeItem("token"); // Remove the token from local storage
+          navigate("/login");
+        } else {
+          const data = await response.json();
+          toast.error(data.message || "Failed to delete account");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        toast.error("An error occurred while deleting the account");
+      }
+    };
+ 
 
   if (loading) {
     return (
@@ -90,7 +124,20 @@ const Profile = () => {
         </div>
 
         {/* Card Footer */}
+        
         <div className="bg-gray-50 p-4">
+        <button
+            onClick={() => navigate("/update")}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-md transition-all duration-300"
+          >
+            Update Profile
+          </button>
+          <button
+            onClick={handleDeleteAccount}
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 rounded-md transition-all duration-300"
+          >
+            Delete Account
+          </button>
           <button
             onClick={() => navigate("/")}
             className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 rounded-md transition-all duration-300"

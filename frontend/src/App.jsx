@@ -12,6 +12,7 @@ import Cart from "./Pages/Cart"
 import Logout from "./Pages/Logout" 
 import Profile from "./Pages/Profile"
 import Admin from "./Pages/AdminPage"
+import Update from './Pages/Update';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,6 +41,8 @@ const App = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/update" element={<Update />} />
+
     </Routes>
       <Footer />
     </>
