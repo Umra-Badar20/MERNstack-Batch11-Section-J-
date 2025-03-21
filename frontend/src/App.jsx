@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation  } from 'react-router-dom';
 import Home from './Pages/Home';
 import Navigation from './components/Navigation';
 import Contact from './Pages/Contact';
@@ -16,6 +16,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+  const location = useLocation();
+  const adminPage = location.pathname === '/admin'; 
   return (
     <>
       <ToastContainer
@@ -29,7 +31,8 @@ const App = () => {
         draggable
         pauseOnHover
       />
-      <Navigation />
+    
+      {!adminPage && <Navigation />} 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -41,7 +44,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
     </Routes>
-      <Footer />
+    {!adminPage && <Footer />}
     </>
   );
 };

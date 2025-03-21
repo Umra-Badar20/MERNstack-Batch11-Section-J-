@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+import "dotenv/config";
 
 const tokenVerification = (req, res, next) => {
  try{
